@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import {
   Text,
   View,
@@ -106,7 +106,17 @@ export default function App() {
     } finally {
       setIsProcessing(false);
     }
-  }, [scannedUrls, selectedIndex, grayscale, contrast, brightness, sharpness, rotation, bwMode, threshold]);
+  }, [
+    scannedUrls,
+    selectedIndex,
+    grayscale,
+    contrast,
+    brightness,
+    sharpness,
+    rotation,
+    bwMode,
+    threshold,
+  ]);
 
   const handleResetFilters = useCallback(() => {
     setGrayscale(false);
@@ -136,7 +146,10 @@ export default function App() {
           <View style={{ width: 50 }} />
         </View>
 
-        <ScrollView style={styles.scrollView} contentContainerStyle={styles.editorContent}>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.editorContent}
+        >
           {/* Preview */}
           <View style={styles.previewContainer}>
             {displayUrl && (
@@ -159,14 +172,19 @@ export default function App() {
             {/* Rotation */}
             <View style={styles.controlRow}>
               <Text style={styles.controlLabel}>Rotation: {rotation}</Text>
-              <TouchableOpacity style={styles.rotateButton} onPress={handleRotate}>
+              <TouchableOpacity
+                style={styles.rotateButton}
+                onPress={handleRotate}
+              >
                 <Text style={styles.rotateButtonText}>Rotate 90</Text>
               </TouchableOpacity>
             </View>
 
             {/* Brightness */}
             <View style={styles.sliderRow}>
-              <Text style={styles.controlLabel}>Brightness: {brightness.toFixed(0)}</Text>
+              <Text style={styles.controlLabel}>
+                Brightness: {brightness.toFixed(0)}
+              </Text>
               <Slider
                 style={styles.slider}
                 minimumValue={-100}
@@ -181,7 +199,9 @@ export default function App() {
 
             {/* Contrast */}
             <View style={styles.sliderRow}>
-              <Text style={styles.controlLabel}>Contrast: {contrast.toFixed(0)}</Text>
+              <Text style={styles.controlLabel}>
+                Contrast: {contrast.toFixed(0)}
+              </Text>
               <Slider
                 style={styles.slider}
                 minimumValue={-100}
@@ -196,7 +216,9 @@ export default function App() {
 
             {/* Sharpness */}
             <View style={styles.sliderRow}>
-              <Text style={styles.controlLabel}>Sharpness: {sharpness.toFixed(0)}</Text>
+              <Text style={styles.controlLabel}>
+                Sharpness: {sharpness.toFixed(0)}
+              </Text>
               <Slider
                 style={styles.slider}
                 minimumValue={0}
@@ -262,7 +284,10 @@ export default function App() {
           >
             <Text style={styles.scanButtonText}>Apply</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.secondaryButton} onPress={handleResetFilters}>
+          <TouchableOpacity
+            style={styles.secondaryButton}
+            onPress={handleResetFilters}
+          >
             <Text style={styles.secondaryButtonText}>Reset</Text>
           </TouchableOpacity>
         </View>
@@ -275,9 +300,7 @@ export default function App() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>
-            Scanned Pages ({scannedUrls.length})
-          </Text>
+          <Text style={styles.title}>Scanned Pages ({scannedUrls.length})</Text>
         </View>
 
         <ScrollView
@@ -308,7 +331,10 @@ export default function App() {
           <TouchableOpacity style={styles.scanButton} onPress={handleScan}>
             <Text style={styles.scanButtonText}>Scan More</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.secondaryButton} onPress={handleCleanup}>
+          <TouchableOpacity
+            style={styles.secondaryButton}
+            onPress={handleCleanup}
+          >
             <Text style={styles.secondaryButtonText}>Cleanup & Back</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.secondaryButton} onPress={handleDone}>
@@ -327,7 +353,11 @@ export default function App() {
         <Text style={styles.subtitle}>Native Document Scanner</Text>
 
         <TouchableOpacity
-          style={[styles.scanButton, styles.bigScanButton, isScanning && styles.disabledButton]}
+          style={[
+            styles.scanButton,
+            styles.bigScanButton,
+            isScanning && styles.disabledButton,
+          ]}
           onPress={handleScan}
           disabled={isScanning}
         >
