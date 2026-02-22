@@ -151,8 +151,10 @@ jobs:
           name: v${{ steps.version.outputs.version }}
           generate_release_notes: true
 
+      - name: Update npm for OIDC support
+        if: steps.bump.outputs.skip != 'true'
+        run: npm install -g npm@latest
+
       - name: Publish to npm
         if: steps.bump.outputs.skip != 'true'
-        env:
-          NPM_CONFIG_PROVENANCE: true
-        run: npm publish --access public
+        run: npm publish --provenance --access public
