@@ -151,11 +151,8 @@ jobs:
           name: v${{ steps.version.outputs.version }}
           generate_release_notes: true
 
-      - name: Setup npm auth
-        if: steps.bump.outputs.skip != 'true'
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-
       - name: Publish to npm
         if: steps.bump.outputs.skip != 'true'
-        run: npm publish --provenance --access public
+        env:
+          NPM_CONFIG_PROVENANCE: true
+        run: npm publish --access public
