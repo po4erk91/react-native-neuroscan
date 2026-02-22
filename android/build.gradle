@@ -64,4 +64,10 @@ android {
 
 dependencies {
   implementation "com.facebook.react:react-android"
+
+  // ML Kit Document Scanner
+  implementation "com.google.android.gms:play-services-mlkit-document-scanner:16.0.0-beta1"
+
+  // Coroutines
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0"
 }

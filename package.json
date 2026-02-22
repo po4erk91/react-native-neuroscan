@@ -45,14 +45,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dmytro/react-native-neuroscan.git"
+    "url": "git+https://github.com/po4erk91/react-native-neuroscan.git"
   },
-  "author": "Dmytro <dmytro@neuroscan.dev> ()",
+  "author": "Dmytro <po4erk91@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dmytro/react-native-neuroscan/issues"
+    "url": "https://github.com/po4erk91/react-native-neuroscan/issues"
   },
-  "homepage": "https://github.com/dmytro/react-native-neuroscan#readme",
+  "homepage": "https://github.com/po4erk91/react-native-neuroscan#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -101,8 +101,8 @@
     ]
   },
   "codegenConfig": {
-    "name": "NeuroscanSpec",
-    "type": "modules",
+    "name": "RNNeuroScanSpec",
+    "type": "all",
     "jsSrcsDir": "src",
     "android": {
       "javaPackageName": "com.neuroscan"
