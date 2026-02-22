@@ -57,7 +57,7 @@ Camera permission is declared in the library's `AndroidManifest.xml` and will be
 ### Scan documents
 
 ```tsx
-import { NeuroScan } from 'react-native-neuroscan';
+import { NeuroScan, isNeuroScanError } from 'react-native-neuroscan';
 
 async function scan() {
   try {
@@ -68,7 +68,7 @@ async function scan() {
     console.log(`Scanned ${result.pageCount} pages`);
     console.log(result.imageUrls); // ['file:///...page1.jpg', ...]
   } catch (error) {
-    if (error.code === 'SCANNER_CANCELLED') {
+    if (isNeuroScanError(error) && error.code === 'SCANNER_CANCELLED') {
       // User dismissed the scanner
       return;
     }

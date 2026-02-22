@@ -1,6 +1,34 @@
 import type { TurboModule } from 'react-native';
 import { TurboModuleRegistry } from 'react-native';
 
+/**
+ * Error codes thrown by NeuroScan methods.
+ */
+export type NeuroScanErrorCode =
+  | 'CAMERA_UNAVAILABLE'
+  | 'SCANNER_CANCELLED'
+  | 'SCANNER_FAILED'
+  | 'PROCESS_FAILED'
+  | 'CLEANUP_FAILED';
+
+/**
+ * Typed error thrown by NeuroScan methods.
+ */
+export interface NeuroScanError extends Error {
+  code: NeuroScanErrorCode;
+}
+
+/**
+ * Type guard to check if an unknown error is a NeuroScanError.
+ */
+export function isNeuroScanError(error: unknown): error is NeuroScanError {
+  return (
+    error instanceof Error &&
+    'code' in error &&
+    typeof (error as NeuroScanError).code === 'string'
+  );
+}
+
 export interface Spec extends TurboModule {
   /**
    * Launch native document scanner UI

@@ -1,7 +1,7 @@
 {
   "name": "react-native-neuroscan",
-  "version": "0.1.0",
-  "description": "Document scanner with edge detection, perspective correction, and advanced color correction via OpenCV",
+  "version": "0.1.1",
+  "description": "React Native native document scanner with edge detection, perspective correction, and advanced image processing",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
   "exports": {

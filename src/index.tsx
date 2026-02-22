@@ -1,2 +1,6 @@
-export { default as NeuroScan } from './NativeNeuroscan';
-export type { Spec as NeuroScanSpec } from './NativeNeuroscan';
+export { default as NeuroScan, isNeuroScanError } from './NativeNeuroscan';
+export type {
+  Spec as NeuroScanSpec,
+  NeuroScanError,
+  NeuroScanErrorCode,
+} from './NativeNeuroscan';
